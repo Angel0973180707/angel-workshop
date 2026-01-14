@@ -3,137 +3,177 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#f5f6f7" />
+  <title>Angel Workshop</title>
 
-  <title>天使工作坊</title>
-
-  <!-- PWA Manifest -->
+  <!-- PWA -->
   <link rel="manifest" href="./manifest.json" />
 
-  <!-- App Icon（給 iOS 的備援） -->
+  <!-- App Icon (iOS / Android fallback) -->
   <link rel="apple-touch-icon" href="./assets/icons/icon-1024.png" />
+  <link rel="icon" href="./assets/icons/icon-1024.png" />
 
   <style>
     :root{
       --bg:#f5f6f7;
       --card:#ffffff;
-      --text:#111;
-      --muted:#666;
+      --text:#1a1a1a;
+      --muted:#6b7280;
       --line:#e7e7e7;
+      --shadow:0 10px 30px rgba(0,0,0,.06);
+      --radius:22px;
     }
+    *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+                   "Noto Sans TC","PingFang TC","Microsoft JhengHei", Arial, sans-serif;
       background:var(--bg);
       color:var(--text);
     }
     .wrap{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
+      max-width:720px;
+      margin:0 auto;
+      padding:18px 14px 28px;
     }
     .card{
-      width:min(520px, 100%);
       background:var(--card);
       border:1px solid var(--line);
-      border-radius:18px;
-      padding:22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      box-shadow:var(--shadow);
+      border-radius:var(--radius);
+      padding:18px;
     }
-    .top{
+    .hero{
       display:flex;
       gap:14px;
-      align-items:center;
-      margin-bottom:12px;
+      align-items:flex-start;
     }
-    .icon{
-      width:52px;
-      height:52px;
-      border-radius:14px;
-      background:#fff;
+    .appicon{
+      width:78px;
+      height:78px;
+      border-radius:18px;
       border:1px solid var(--line);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      background:#fff;
+      display:grid;
+      place-items:center;
       overflow:hidden;
       flex:0 0 auto;
     }
-    .icon img{
+    .appicon img{
       width:100%;
       height:100%;
       object-fit:cover;
+      display:block;
+    }
+    .fallback{
+      width:100%;
+      height:100%;
+      display:grid;
+      place-items:center;
+      font-size:26px;
+      color:#111;
+      background:linear-gradient(135deg, #ffffff, #f2f2f2);
     }
     h1{
-      font-size:20px;
-      margin:0;
+      margin:2px 0 6px;
+      font-size:28px;
       letter-spacing:.5px;
     }
-    p{
-      margin:10px 0 0;
+    .sub{
+      margin:0;
       color:var(--muted);
       line-height:1.6;
-      font-size:14px;
+      font-size:15px;
     }
-    .hr{
+    .divider{
       height:1px;
       background:var(--line);
       margin:16px 0;
     }
-    .tips{
-      display:grid;
-      gap:10px;
+    .section{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .mini{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:#fff;
+    }
+    .mini h2{
+      margin:0 0 8px;
+      font-size:16px;
+      font-weight:700;
+    }
+    .mini p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
       font-size:14px;
     }
-    .tip{
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border:1px dashed #d8d8d8;
+      border-radius:16px;
       background:#fafafa;
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:12px;
+      color:#111;
+      font-size:14px;
+      line-height:1.45;
+      margin-top:10px;
+      word-break:break-word;
     }
-    .mono{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size:12px;
-      color:#444;
-      background:#fff;
-      border:1px dashed var(--line);
-      border-radius:10px;
-      padding:8px 10px;
-      margin-top:8px;
-      word-break:break-all;
+    .path{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      font-size:13px;
     }
   </style>
 </head>
 
 <body>
   <main class="wrap">
-    <section class="card" aria-label="天使工作坊">
-      <div class="top">
-        <div class="icon" aria-hidden="true">
-          <img src="./資產/圖示/icon-1024.png" alt="" />
+    <section class="card" aria-label="Angel Workshop">
+      <div class="hero">
+        <div class="appicon" aria-hidden="true">
+          <!-- 若圖片路徑錯/快取未更新，會自動顯示備援 -->
+          <img
+            src="./assets/icons/icon-1024.png"
+            alt=""
+            onerror="this.remove(); this.parentElement.innerHTML='<div class=&quot;fallback&quot;>🕊️</div>';"
+          />
         </div>
+
         <div>
           <h1>天使工作坊</h1>
-          <p>協作工坊母體｜先讓它能跑起來，再慢慢長成你要的樣子。</p>
+          <p class="sub">協作工坊母體｜先讓它能跑起來，再慢慢長成你要的樣子。</p>
         </div>
       </div>
 
-      <div class="hr"></div>
+      <div class="divider"></div>
 
-      <div class="tips">
-        <div class="tip">
-          ✅ 你已完成：repo 結構＋icon＋manifest
-          <div class="mono">下一步：開啟 GitHub Pages，讓它上線</div>
+      <div class="section">
+        <div class="mini">
+          <h2>✅ 你已完成：repo 結構 + icon + manifest</h2>
+          <div class="badge">
+            <span>下一步：</span>
+            <span>開啟 GitHub Pages，讓它上線</span>
+          </div>
         </div>
 
-        <div class="tip">
-          📌 你的 icon 路徑（現在應該能看到圖）
-          <div class="mono">資產/圖示/icon-1024.png</div>
+        <div class="mini">
+          <h2>📌 Icon Path（以後全用英文路徑）</h2>
+          <div class="badge path">assets/icons/icon-1024.png</div>
+          <p style="margin-top:10px" class="sub">
+            提醒：GitHub Pages 對大小寫很敏感（icons ≠ Icons）。
+          </p>
         </div>
 
-        <div class="tip">
-          🌿 之後我們會把工坊做成：工具存放區、影音備註、表單入口（可選）、命名咒語區。
+        <div class="mini">
+          <h2>🌿 工坊接下來會長出的功能</h2>
+          <p>工具存放區、影音備註（可放多個連結）、表單入口（可選）、命名咒語區。</p>
         </div>
       </div>
     </section>
