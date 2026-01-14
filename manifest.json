@@ -1,15 +1,16 @@
 {
-  "name": "天使工作坊",
-  "short_name": "天使工坊",
-  "description": "Angel 協作工坊｜陪伴自己與創作的地方",
-  "start_url": "./index.html",
+  "name": "Angel Workshop",
+  "short_name": "Angel",
+  "description": "Angel Workshop｜A collaborative PWA workshop for building tools with clarity and ease.",
+  "start_url": "/angel-workshop/index.html",
+  "scope": "/angel-workshop/",
   "display": "standalone",
   "background_color": "#f5f6f7",
-  "theme_color": "#ffffff",
+  "theme_color": "#f5f6f7",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "./assets/icons/icon-1024.png",
+      "src": "/angel-workshop/assets/icons/icon-1024.png",
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any maskable"
